@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+class App extends React.Component {
+  state = {};
+  render() {
+    return (
+      <div className="App">
+        <h1>GA Airlines</h1>
+        <Flights />
+      </div>
+    );
+  }
+}
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Flights extends React.Component {
+  state = {};
+  render() {
+    return (
+      <div>
+        <p>Please select a flight here.</p>
+        <h4>Flights</h4>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Flight</th>
+            <th>From > To</th>
+            <th>Plane</th>
+            <th>Seats</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3/1/13</td>
+            <td>23</td>
+            <td>JFK > SFO</td>
+            <td>757</td>
+            <td>32</td>
+          </tr>
+        </tbody>
+      </div>
+    );
+  }
 }
 
 export default App;
