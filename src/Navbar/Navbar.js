@@ -6,9 +6,10 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav>
-          <a href="#">
-            <h1>Home</h1>
-          </a>
+          <a href="./">Home </a>
+          <a href="./airplanes">Airplanes</a>
+          <a href="./flights">Flights</a>
+
         </nav>
       </div>
     );
