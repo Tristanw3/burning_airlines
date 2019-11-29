@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-        <h1>GA Airlines</h1>
+
         <Router>
 
           <Login path="/" />
