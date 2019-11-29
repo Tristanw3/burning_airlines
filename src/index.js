@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import Login from "./Login/Login";
-import Navbar from "./Navbar/Navbar";
+import Navi from "./Navi/Navi";
 import Airplanes from "./Airplanes/Airplanes";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
-ReactDOM.render(<Navbar />, document.getElementById("navbar"));
+ReactDOM.render(<Navi />, document.getElementById("navbar"));
 ReactDOM.render(<Login />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
