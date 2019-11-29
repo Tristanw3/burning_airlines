@@ -1,5 +1,8 @@
 import React from "react";
 import "./Login.css";
+
+import Airplanes from '../Airplanes/Airplanes'
+
 class Login extends React.Component {
   state = {};
   render() {
@@ -27,7 +30,7 @@ class LoginCheck extends React.Component {
         {this.state.loggedIn && (
           <div>
             <h3>Welcome, admin/user!</h3>
-            <PlaneList />
+            <Airplanes />
             <button onClick={() => this.handleLogout()}>Logout</button>
           </div>
         )}
@@ -48,37 +51,37 @@ class LoginCheck extends React.Component {
   }
 }
 
-class PlaneList extends React.Component {
-  state = {
-    planeList: [],
-    planeItem: ""
-  };
-  handleValueEntered(event) {
-    const newPlaneItem = event.target.value;
-    console.log(">>>>>>>>>>" + newPlaneItem);
-    this.setState(state => ({ ...state, planeItem: newPlaneItem }));
-  }
-  handlePlaneAdded() {
-    this.setState(state => {
-      const newPlaneList = [...state.planeList, state.planeItem];
-      return { ...state, planeList: newPlaneList };
-    });
-    // console.log("click");
-  }
+// class PlaneList extends React.Component {
+//   state = {
+//     planeList: [],
+//     planeItem: ""
+//   };
+//   handleValueEntered(event) {
+//     const newPlaneItem = event.target.value;
+//     console.log(">>>>>>>>>>" + newPlaneItem);
+//     this.setState(state => ({ ...state, planeItem: newPlaneItem }));
+//   }
+//   handlePlaneAdded() {
+//     this.setState(state => {
+//       const newPlaneList = [...state.planeList, state.planeItem];
+//       return { ...state, planeList: newPlaneList };
+//     });
+//     // console.log("click");
+//   }
 
-  render() {
-    const planeElements = this.state.planeList.map((planeItem, index) => (
-      <li key={index}>{planeItem}</li>
-    ));
-    return (
-      <div>
-        <h2>GA Airlines</h2>
-        <input type="text" onChange={event => this.handleValueEntered(event)} />
-        <button onClick={() => this.handlePlaneAdded()}>Create Plane</button>
-        <ul>{planeElements}</ul>
-      </div>
-    );
-  }
-}
+//   render() {
+//     const planeElements = this.state.planeList.map((planeItem, index) => (
+//       <li key={index}>{planeItem}</li>
+//     ));
+//     return (
+//       <div>
+//         <h2>GA Airlines</h2>
+//         <input type="text" onChange={event => this.handleValueEntered(event)} />
+//         <button onClick={() => this.handlePlaneAdded()}>Create Plane</button>
+//         <ul>{planeElements}</ul>
+//       </div>
+//     );
+//   }
+// }
 
 export default Login;
