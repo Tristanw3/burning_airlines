@@ -1,5 +1,7 @@
 import React from "react";
 import "./Flights.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Table } from "react-bootstrap";
 class Flights extends React.Component {
   state = {};
   render() {
@@ -129,7 +131,7 @@ class FlightsList extends React.Component {
 
         <p>Please select a flight here.</p>
         <h4>Flights</h4>
-        <table>
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>Date</th>
@@ -141,7 +143,7 @@ class FlightsList extends React.Component {
             </tr>
           </thead>
           {flightElements}
-        </table>
+        </Table>
       </div>
     );
   }
