@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
 
-import Airplanes from '../Airplanes/Airplanes'
+import Airplanes from "../Airplanes/Airplanes";
 
 class Login extends React.Component {
   state = {};
@@ -30,6 +30,7 @@ class LoginCheck extends React.Component {
         {this.state.loggedIn && (
           <div>
             <h3>Welcome, admin/user!</h3>
+            <a href="./search">Search Flights</a>
             <Airplanes />
             <button onClick={() => this.handleLogout()}>Logout</button>
           </div>
