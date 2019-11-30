@@ -3,11 +3,12 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import components
-import Navbar from './Navbar/Navbar';
+import Navi from './Navi/Navi';
 import Login from './Login/Login';
 
 import Flights from './Flights/Flights';
 import Airplanes from './Airplanes/Airplanes';
+import Seats from './Seats/Seats';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,12 +21,13 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-				<Navbar />
+				<Navi />
 
 				<Router>
 					<Login path="/" />
 					<Flights path="/flights" />
 					<Airplanes path="/planes" />
+					<Seats path="/seats" />
 				</Router>
 			</div>
 		);

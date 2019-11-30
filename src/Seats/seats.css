@@ -1,0 +1,60 @@
+#seats {
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid lightblue;
+	width: 800px;
+	padding: 20px;
+}
+
+.seatMap {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	background-color: lightgreen;
+	width: 1000px;
+	height: 450px;
+	padding: 20px;
+}
+
+.seatSquare {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	border: 1px red solid;
+	width: 70px;
+	height: 80px;
+	margin: 10px;
+}
+
+.seat {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.base {
+	width: 20px;
+	height: 20px;
+	/* background-color: grey; */
+	border: 1px solid red;
+}
+
+.top {
+	width: 10px;
+	height: 30px;
+	/* background-color: grey; */
+	border: 1px solid red;
+}
+
+.taken {
+	background-color: grey;
+	border: 1px solid black;
+}
+
+.seatSquareTaken {
+	border: 1px solid black;
+}
+.avail {
+	color: red;
+}
