@@ -1,7 +1,7 @@
 import React from "react";
 import "./Flights.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Table, Container } from "react-bootstrap";
+import { Button, Table, Container } from "react-bootstrap";
 class Flights extends React.Component {
   state = {};
   render() {
@@ -155,7 +155,12 @@ class FlightsList extends React.Component {
             onChange={event => this.handleFlightSeatsEntered(event)}
           />
         </label>
-        <button onClick={() => this.handleFlightAdded()}>Create Flight</button>
+        <button
+          className="btn btn-primary"
+          onClick={() => this.handleFlightAdded()}
+        >
+          Create Flight
+        </button>
 
         <h4>Flights</h4>
         <Container>
