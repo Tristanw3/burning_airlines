@@ -1,18 +1,9 @@
 import React from "react";
-import "./Flights.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table, Container } from "react-bootstrap";
-class Flights extends React.Component {
-  state = {};
-  render() {
-    return (
-      <div>
-        <CreateFlights />
-      </div>
-    );
-  }
-}
-class CreateFlights extends React.Component {
+import "./FlightsList.css";
+
+class FlightsList extends React.Component {
   state = {
     flightList: [
       {
@@ -112,52 +103,54 @@ class CreateFlights extends React.Component {
     });
     return (
       <div>
-        <h2>Add Flights</h2>
-        <label id="Date">
-          Date
-          <input
-            type="Date"
-            onChange={event => this.handleFlightDateEntered(event)}
-          />
-        </label>
-        <label id="FlightNum">
-          Flight No.
-          <input
-            type="text"
-            onChange={event => this.handleFlightIdEntered(event)}
-          />
-        </label>
-        <label id="From">
-          From
-          <input
-            type="text"
-            onChange={event => this.handleFlightFromEntered(event)}
-          />
-        </label>
-        <label id="To">
-          To
-          <input
-            type="text"
-            onChange={event => this.handleFlightToEntered(event)}
-          />
-        </label>
-        <label id="PlaneModel">
-          Plane Model
-          <input
-            type="text"
-            onChange={event => this.handlePlaneModelEntered(event)}
-          />
-        </label>
-        <label id="Seats">
-          Seats
-          <input
-            type="text"
-            onChange={event => this.handleFlightSeatsEntered(event)}
-          />
-        </label>
-        <button onClick={() => this.handleFlightAdded()}>Create Flight</button>
-
-        <h4>Flights</h4>
+        <div className="hidden">
+          <h2>Add Flights</h2>
+          <label id="Date">
+            Date
+            <input
+              type="Date"
+              onChange={event => this.handleFlightDateEntered(event)}
+            />
+          </label>
+          <label id="FlightNum">
+            Flight No.
+            <input
+              type="text"
+              onChange={event => this.handleFlightIdEntered(event)}
+            />
+          </label>
+          <label id="From">
+            From
+            <input
+              type="text"
+              onChange={event => this.handleFlightFromEntered(event)}
+            />
+          </label>
+          <label id="To">
+            To
+            <input
+              type="text"
+              onChange={event => this.handleFlightToEntered(event)}
+            />
+          </label>
+          <label id="PlaneModel">
+            Plane Model
+            <input
+              type="text"
+              onChange={event => this.handlePlaneModelEntered(event)}
+            />
+          </label>
+          <label id="Seats">
+            Seats
+            <input
+              type="text"
+              onChange={event => this.handleFlightSeatsEntered(event)}
+            />
+          </label>
+          <button onClick={() => this.handleFlightAdded()}>
+            Create Flight
+          </button>
+        </div>
         <Container>
           <Table striped bordered hover>
             <thead>
@@ -178,4 +171,4 @@ class CreateFlights extends React.Component {
   }
 }
 
-export default Flights;
+export default FlightsList;

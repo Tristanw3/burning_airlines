@@ -14,6 +14,7 @@ class Navi extends React.Component {
             <Nav.Link href="./planes">Airplanes</Nav.Link>
             <Nav.Link href="./flights">Flights</Nav.Link>
             <Nav.Link href="./search">Search</Nav.Link>
+            <Nav.Link href="./seats">Seats</Nav.Link>
           </Nav>
         </Navbar>
       </div>
