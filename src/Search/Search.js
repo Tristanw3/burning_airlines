@@ -9,6 +9,7 @@ import {
   Button
 } from "react-bootstrap";
 import "./Search.css";
+import $ from "jquery";
 
 class Search extends React.Component {
   state = {
@@ -96,10 +97,25 @@ class Search extends React.Component {
     console.log(event.target.value);
     console.log(this.state.flightList);
   }
+  componentDidMount() {
+    $("#searchMyInput").on("keyup", function() {
+      var value = $(this)
+        .val()
+        .toUpperCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle(
+          $(this)
+            .text()
+            .toUpperCase()
+            .indexOf(value) > -1
+        );
+      });
+    });
+  }
   render() {
     const flightElements = this.state.flightList.map((flightList, index) => {
       return (
-        <tbody key={index}>
+        <tbody id="myTable" key={index}>
           <tr>
             <td>{flightList.flightDate}</td>
             <td>
@@ -122,6 +138,7 @@ class Search extends React.Component {
               type="text"
               placeholder="Search"
               className="mr-sm-2"
+              id="searchMyInput"
               onChange={event => this.handleSearch(event)}
             />
             <Button variant="outline-light">Search</Button>
