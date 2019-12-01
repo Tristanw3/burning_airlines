@@ -7,12 +7,12 @@ class Flights extends React.Component {
   render() {
     return (
       <div>
-        <CreateFlights />
+        <FlightsList />
       </div>
     );
   }
 }
-class CreateFlights extends React.Component {
+class FlightsList extends React.Component {
   state = {
     flightList: [
       {
