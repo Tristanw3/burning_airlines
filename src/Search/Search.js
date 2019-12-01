@@ -128,7 +128,7 @@ class Search extends React.Component {
           </Form>
         </Navbar>
         <div className="hidden">
-          <h2>Add Flights</h2>
+          <h2>Search Testing</h2>
           <label id="Date">
             Date
             <input
