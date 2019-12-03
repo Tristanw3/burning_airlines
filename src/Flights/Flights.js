@@ -112,7 +112,7 @@ class FlightsList extends React.Component {
     });
     return (
       <div>
-        <h2>Add Flights</h2>
+        <h2>GA Airlines</h2>
         <label id="Date">
           Date
           <input

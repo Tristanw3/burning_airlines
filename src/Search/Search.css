@@ -1,7 +1,11 @@
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 .container {
   margin-top: 20px;
+}
+
+.searching {
+  display: none;
 }

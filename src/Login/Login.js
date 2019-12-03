@@ -2,7 +2,6 @@ import React from "react";
 import "./Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Airplanes from "../Airplanes/Airplanes";
 import Search from "../Search/Search";
 import { Button } from "react-bootstrap";
 

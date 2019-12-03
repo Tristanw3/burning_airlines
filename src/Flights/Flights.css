@@ -10,3 +10,6 @@
 button {
   font-weight: bold;
 }
+label {
+  margin: 10px;
+}
