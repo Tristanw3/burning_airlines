@@ -60,7 +60,11 @@ class Search extends React.Component {
       isSearching: true
     });
   }
-
+  handleCancelSearch() {
+    this.setState({
+      isSearching: false
+    });
+  }
   render() {
     const flightElements = this.state.filteredFlights.map(flightList => {
       return (
@@ -81,53 +85,50 @@ class Search extends React.Component {
       );
     });
 
-    const renderSearchResults = () => {
-      // let isSearching = false;
-      // if (!isSearching) {
-      //   return <h3>Begin your search</h3>;
-      // }
-      return (
-        <Container>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Flight</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Plane</th>
-                <th>Seats</th>
-              </tr>
-            </thead>
-            {flightElements}
-          </Table>
-        </Container>
-      );
-    };
-
     return (
       <div>
-        <div className="hidden">
-          <label id="From">
-            From
-            <input
-              type="text"
-              onChange={event => this.handleFlightFromEntered(event)}
-            />
-          </label>
-          <label id="To">
-            To
-            <input
-              type="text"
-              onChange={event => this.handleFlightToEntered(event)}
-            />
-          </label>
-          <button onClick={() => this.handleSearchFlight()}>
-            Search Flights
-          </button>
+        <label id="From">
+          From
+          <input
+            type="text"
+            onChange={event => this.handleFlightFromEntered(event)}
+          />
+        </label>
+        <label id="To">
+          To
+          <input
+            type="text"
+            onChange={event => this.handleFlightToEntered(event)}
+          />
+        </label>
+        <button onClick={() => this.handleSearchFlight()}>
+          Search Flights
+        </button>
+        <button onClick={() => this.handleCancelSearch()}>Cancel</button>
+        <div>
+          {this.state.isSearching && (
+            <Container>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Flight</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Plane</th>
+                    <th>Seats</th>
+                  </tr>
+                </thead>
+                {flightElements}
+              </Table>
+            </Container>
+          )}
+          {!this.state.isSearching && (
+            <div>
+              <h3>Begin your search</h3>
+            </div>
+          )}
         </div>
-
-        {renderSearchResults()}
       </div>
     );
   }
