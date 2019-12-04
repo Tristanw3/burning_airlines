@@ -86,7 +86,7 @@ class Search extends React.Component {
     });
 
     return (
-      <div>
+      <div id="searchBackground">
         <label id="From">
           From
           <input
@@ -101,9 +101,7 @@ class Search extends React.Component {
             onChange={event => this.handleFlightToEntered(event)}
           />
         </label>
-        <button onClick={() => this.handleSearchFlight()}>
-          Search Flights
-        </button>
+        <button onClick={() => this.handleSearchFlight()}>Find Flights</button>
         <button onClick={() => this.handleCancelSearch()}>Cancel</button>
         <div>
           {this.state.isSearching && (

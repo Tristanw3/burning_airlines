@@ -1,0 +1,7 @@
+.carousel {
+  width: 100%;
+}
+.carousel img {
+  size: cover;
+  height: 900px;
+}

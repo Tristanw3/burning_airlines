@@ -3,6 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Import components
+import Brand from "./Brand/Brand";
 import Navi from "./Navi/Navi";
 import Login from "./Login/Login";
 
@@ -25,6 +26,7 @@ class App extends React.Component {
         <Navi />
 
         <Router>
+          <Brand path="/brand" />
           <Login path="/" />
           <Flights path="/flights" />
           <Airplanes path="/planes" />

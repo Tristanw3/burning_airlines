@@ -8,7 +8,7 @@ class Navi extends React.Component {
     return (
       <div>
         <Navbar bg="primary" variant="dark">
-          <Navbar.Brand href="./">GA Airlines</Navbar.Brand>
+          <Navbar.Brand href="./brand">GA Airlines</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="./">Home</Nav.Link>
             <Nav.Link href="./planes">Airplanes</Nav.Link>
