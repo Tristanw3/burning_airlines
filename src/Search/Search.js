@@ -2,40 +2,33 @@ import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table, Container } from "react-bootstrap";
 import "./Search.css";
+import { BACKEND_URL } from "../config";
 
 class Search extends React.Component {
   state = {
-    flightList: [
-      {
-        flightDate: "24/12/2019",
-        flightId: "GA001",
-        flightFrom: "SYD",
-        flightTo: "MEL",
-        flightModel: 747,
-        flightSeats: 32
-      },
-      {
-        flightDate: "25/12/2019",
-        flightId: "GA002",
-        flightFrom: "MEL",
-        flightTo: "SYD",
-        flightModel: 747,
-        flightSeats: 32
-      },
-      {
-        flightDate: "26/12/2019",
-        flightId: "GA003",
-        flightFrom: "SYD",
-        flightTo: "MEL",
-        flightModel: 737,
-        flightSeats: 56
-      }
-    ],
+    flightList: [],
     flightFrom: "",
     flightTo: "",
     filteredFlights: [],
     isSearching: false
   };
+
+  componentDidMount() {
+    let self = this;
+
+    fetch(BACKEND_URL + "/flights.json") // this needs to go to /flights/:id/info.json
+      .then(response => response.json())
+      .then(json => {
+        self.setState(state => {
+          console.log("json :", json);
+
+          return {
+            ...state,
+            flightList: [...json]
+          };
+        });
+      });
+  }
 
   handleFlightFromEntered(event) {
     const newFlightFrom = event.target.value.toUpperCase();
@@ -50,7 +43,8 @@ class Search extends React.Component {
     const flightSearchString = this.state.flightFrom + this.state.flightTo;
     console.log("flightSearchString :", flightSearchString);
     const filteredFlights = this.state.flightList.filter(flight => {
-      const thisFlightsString = flight.flightFrom + flight.flightTo;
+      const thisFlightsString =
+        flight.origin.toUpperCase() + flight.destination.toUpperCase();
       return thisFlightsString === flightSearchString;
     });
 
@@ -65,20 +59,23 @@ class Search extends React.Component {
       isSearching: false
     });
   }
+
   render() {
     const flightElements = this.state.filteredFlights.map(flightList => {
       return (
         <Fragment>
           <tbody id="myTable" key={flightList.id}>
             <tr>
-              <td>{flightList.flightDate}</td>
+              <td>{flightList.date}</td>
               <td>
-                <a href="./seats">{flightList.flightId}</a>
+                <a href={"/flights/" + flightList.id}>
+                  {flightList.flight_number}
+                </a>
               </td>
-              <td>{flightList.flightFrom}</td>
-              <td>{flightList.flightTo}</td>
-              <td>{flightList.flightModel}</td>
-              <td>{flightList.flightSeats}</td>
+              <td>{flightList.origin}</td>
+              <td>{flightList.destination}</td>
+              <td>{flightList.airplane_model}</td>
+              <td>{flightList.capacity}</td>
             </tr>
           </tbody>
         </Fragment>

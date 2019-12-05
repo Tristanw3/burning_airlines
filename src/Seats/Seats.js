@@ -1,6 +1,6 @@
 import React from "react";
 import "./seats.css";
-import config from "../config";
+import { BACKEND_URL } from "../config";
 
 export default class Seats extends React.Component {
   state = {
@@ -12,33 +12,29 @@ export default class Seats extends React.Component {
       ["Sally", null, "Trent", "Dave"],
       ["Dylan", null, null, "Dave"],
       ["Sally", null, "Trent", "Dave"]
-    ],
+    ]
   };
 
   updateSeats(data) {
-    this.setState((state) => {
-      return (
-        {
-          ...state,
-          seats: data.isTaken,
-          rows: data.rows,
-          columns: data.columns
-        }
-      )
+    this.setState(state => {
+      return {
+        ...state,
+        seats: data.isTaken,
+        rows: data.rows,
+        columns: data.columns
+      };
     });
-  };
+  }
 
   componentDidMount() {
     let self = this;
-    
-    fetch(config.endpoint + '/flights/' + '1'/* <-- fix */ + '/info.json') // this needs to go to /flights/:id/info.json
+
+    fetch(BACKEND_URL + "/flights/" + "1" /* <-- fix */ + "/info.json") // this needs to go to /flights/:id/info.json
       .then(response => response.json())
-      .then(json => self.updateSeats(json))
-  };
+      .then(json => self.updateSeats(json));
+  }
 
   render() {
-    
-    
     let freeSeats = [];
     this.state.seats.forEach(function(ele) {
       ele.forEach(function(ele2) {
