@@ -13,11 +13,8 @@ export default class Seats extends React.Component {
       ["Dylan", null, null, "Dave"],
       ["Sally", null, "Trent", "Dave"]
     ],
-
-    test: ["not yet"]
   };
 
-/* will update the seats, rows and columns state when written */
   updateSeats(data) {
     this.setState((state) => {
       return (
@@ -29,17 +26,18 @@ export default class Seats extends React.Component {
         }
       )
     });
-  }
-/* end work-in-progress */
+  };
 
-
-  render() {
+  componentDidMount() {
     let self = this;
     
     fetch(config.endpoint + '/flights/' + '1'/* <-- fix */ + '/info.json') // this needs to go to /flights/:id/info.json
       .then(response => response.json())
       .then(json => self.updateSeats(json))
-    /* end work-in-progress */
+  };
+
+  render() {
+    
     
     let freeSeats = [];
     this.state.seats.forEach(function(ele) {
