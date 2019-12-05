@@ -13,9 +13,3 @@ button {
 label {
 	margin: 10px;
 }
-
-iframe {
-	overflow: scroll;
-	height: 1000px;
-	width: 1000px;
-}

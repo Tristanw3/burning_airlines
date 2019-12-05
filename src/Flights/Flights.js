@@ -109,7 +109,6 @@ class FlightsList extends React.Component {
 		});
 		return (
 			<div>
-				<iframe src="http://localhost:3005/flights/new">text</iframe>
 				<h2>GA Airlines</h2>
 				<label id="Date">
 					Date
