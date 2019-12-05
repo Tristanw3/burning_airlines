@@ -19,18 +19,25 @@ export default class Seats extends React.Component {
 
 /* will update the seats, rows and columns state when written */
   updateSeats(data) {
-    console.log(data.rows);
-    // this.state.seats = dat
+    this.setState((state) => {
+      return (
+        {
+          ...state,
+          seats: data.isTaken,
+          rows: data.rows,
+          columns: data.columns
+        }
+      )
+    });
   }
 /* end work-in-progress */
 
 
   render() {
-    /* work-in-progress to fetch DTO from /flights/:id/info.json*/
     let self = this;
     
-    fetch(config.endpoint) // this needs to go to /flights/:id/info.json
-      .then(response => response.json)
+    fetch(config.endpoint + '/flights/' + '1'/* <-- fix */ + '/info.json') // this needs to go to /flights/:id/info.json
+      .then(response => response.json())
       .then(json => self.updateSeats(json))
     /* end work-in-progress */
     
