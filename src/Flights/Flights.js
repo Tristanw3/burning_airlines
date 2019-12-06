@@ -41,6 +41,19 @@ class FlightsList extends React.Component {
       });
   }
 
+  // $.ajax({
+  //   url: '/flights.json',
+  //   dataType: 'json',
+  //   type: 'POST',
+  //   data: flightList,
+  //   success: function(data) {
+  //     this.setState({data: flightList})
+  //   }.bind(this),
+  //   error: function(xhr, status, err){
+
+  //   }.bind(this)
+  // })
+
   handleFlightDateEntered(event) {
     const newFlightDate = event.target.value
       .split("-")
@@ -101,33 +114,33 @@ class FlightsList extends React.Component {
         //     <td>{flightList.flightSeats}</td>
         //   </tr>
         // </tbody>
-        <Fragment>
-          <tbody id="myTable" key={flightList.id}>
-            <tr>
-              <td>
-                {flightList.date}
-                {/* {flightList.date.split("-")[2]}
-                {flightList.date.split("-")[1]}
-                {flightList.date.split("-")[0]} */}
-              </td>
-              <td>
-                <a href={"/flights/" + flightList.id}>
-                  {flightList.flight_number}
-                </a>
-              </td>
-              <td>{flightList.origin}</td>
-              <td>{flightList.destination}</td>
-              <td>{flightList.airplane_model}</td>
-              <td>{flightList.capacity}</td>
-            </tr>
-          </tbody>
-        </Fragment>
+        // <Fragment>
+        <tbody id="myTable" key={flightList.id}>
+          <tr>
+            <td>
+              {flightList.date
+                .split("-")
+                .reverse()
+                .join("/")}
+            </td>
+            <td>
+              <a href={"/flights/" + flightList.id}>
+                {flightList.flight_number}
+              </a>
+            </td>
+            <td>{flightList.origin}</td>
+            <td>{flightList.destination}</td>
+            <td>{flightList.airplane_model}</td>
+            <td>{flightList.capacity}</td>
+          </tr>
+        </tbody>
+        // </Fragment>
       );
       //   <li key={index}>{flightList.flightId}</li>;
     });
     return (
       <div>
-        <h2>GA Airlines</h2>
+        {/* <h2>GA Airlines</h2>
         <label id="Date">
           Date
           <input
@@ -169,13 +182,16 @@ class FlightsList extends React.Component {
             type="text"
             onChange={event => this.handleFlightSeatsEntered(event)}
           />
-        </label>
-        <button
-          className="btn btn-primary"
-          onClick={() => this.handleFlightAdded()}
-        >
-          Create Flight
-        </button>
+        </label> */}
+        <a href="http://localhost:3005/flights/new">
+          <button
+            className="btn btn-primary"
+
+            // onClick={() => this.handleFlightAdded()}
+          >
+            Create Flight
+          </button>
+        </a>
 
         <h4>Flights</h4>
         <Container>

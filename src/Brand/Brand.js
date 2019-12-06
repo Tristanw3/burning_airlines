@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Nav, Navbar } from "react-bootstrap";
 import "./Brand.css";
 
 class Brand extends React.Component {
@@ -8,6 +8,14 @@ class Brand extends React.Component {
   render() {
     return (
       <div>
+        {/* <div>
+          <Navbar bg="primary" variant="dark">
+            <Navbar.Brand href="./brand">GA Airlines</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+            </Nav>
+          </Navbar>
+        </div> */}
         <Carousel>
           <Carousel.Item>
             <img

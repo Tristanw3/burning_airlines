@@ -66,7 +66,12 @@ class Search extends React.Component {
         <Fragment>
           <tbody id="myTable" key={flightList.id}>
             <tr>
-              <td>{flightList.date}</td>
+              <td>
+                {flightList.date
+                  .split("-")
+                  .reverse()
+                  .join("/")}
+              </td>
               <td>
                 <a href={"/flights/" + flightList.id}>
                   {flightList.flight_number}

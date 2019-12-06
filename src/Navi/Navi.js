@@ -11,9 +11,7 @@ class Navi extends React.Component {
           <Navbar.Brand href="./brand">GA Airlines</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="http://localhost:3005/airplanes/new">
-              Airplanes
-            </Nav.Link>
+            <Nav.Link href="/planes">Airplanes</Nav.Link>
             <Nav.Link href="/flights">Flights</Nav.Link>
             <Nav.Link href="/search">Search</Nav.Link>
           </Nav>
