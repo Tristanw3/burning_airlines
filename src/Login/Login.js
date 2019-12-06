@@ -28,11 +28,12 @@ class LoginCheck extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="homepage">
         {this.state.loggedIn && (
           <div>
-            <h3>Welcome, admin/user!</h3>
-            <Search />
+            <h1>Welcome Back, admin/user!</h1>
+            <h3>Your flights details:</h3>
+            {/* <Search /> */}
             <Button class="btn btn-primary" onClick={() => this.handleLogout()}>
               Logout
             </Button>
@@ -40,8 +41,8 @@ class LoginCheck extends React.Component {
         )}
         {!this.state.loggedIn && (
           <div>
-            <h3>Please login or signup</h3>
-            <h4>Email address</h4>
+            <h1>Please Login or Signup</h1>
+            <h4>Email Address</h4>
             <input type="text" placeholder="Your Email Address"></input>
             <h4>Password</h4>
             <input type="text" placeholder="Your Password"></input>

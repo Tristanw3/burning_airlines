@@ -6,3 +6,12 @@
 button {
   margin: 5px;
 }
+
+input {
+  border-radius: 5px;
+}
+
+.homepage {
+  margin-top: 50px;
+  padding: 20px;
+}

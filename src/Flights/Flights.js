@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Flights.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Table, Container } from "react-bootstrap";
 import { BACKEND_URL } from "../config";
 class Flights extends React.Component {
   state = {};
+
   render() {
     return (
       <div>
@@ -15,32 +16,7 @@ class Flights extends React.Component {
 }
 class FlightsList extends React.Component {
   state = {
-    flightList: [
-      {
-        flightDate: "24/12/2019",
-        flightId: "GA001",
-        flightFrom: "SYD",
-        flightTo: "MEL",
-        flightModel: 747,
-        flightSeats: 32
-      },
-      {
-        flightDate: "25/12/2019",
-        flightId: "GA002",
-        flightFrom: "MEL",
-        flightTo: "SYD",
-        flightModel: 747,
-        flightSeats: 32
-      },
-      {
-        flightDate: "26/12/2019",
-        flightId: "GA003",
-        flightFrom: "SYD",
-        flightTo: "MEL",
-        flightModel: 737,
-        flightSeats: 56
-      }
-    ],
+    flightList: [],
     flightDate: [],
     flightId: [],
     flightFrom: [],
@@ -48,6 +24,23 @@ class FlightsList extends React.Component {
     flightModel: [],
     flightSeats: []
   };
+  componentDidMount() {
+    let self = this;
+
+    fetch(BACKEND_URL + "/flights.json") // this needs to go to /flights/:id/info.json
+      .then(response => response.json())
+      .then(json => {
+        self.setState(state => {
+          console.log("json :", json);
+
+          return {
+            ...state,
+            flightList: [...json]
+          };
+        });
+      });
+  }
+
   handleFlightDateEntered(event) {
     const newFlightDate = event.target.value
       .split("-")
@@ -96,18 +89,39 @@ class FlightsList extends React.Component {
   render() {
     const flightElements = this.state.flightList.map((flightList, index) => {
       return (
-        <tbody key={index}>
-          <tr>
-            <td>{flightList.flightDate}</td>
-            <td>
-              <a href={"/flights/" + flightList.id}>{flightList.flightId}</a>
-            </td>
-            <td>{flightList.flightFrom}</td>
-            <td>{flightList.flightTo}</td>
-            <td>{flightList.flightModel}</td>
-            <td>{flightList.flightSeats}</td>
-          </tr>
-        </tbody>
+        // <tbody key={index}>
+        //   <tr>
+        //     <td>{flightList.flightDate}</td>
+        //     <td>
+        //       <a href={"/flights/" + flightList.id}>{flightList.flightId}</a>
+        //     </td>
+        //     <td>{flightList.flightFrom}</td>
+        //     <td>{flightList.flightTo}</td>
+        //     <td>{flightList.flightModel}</td>
+        //     <td>{flightList.flightSeats}</td>
+        //   </tr>
+        // </tbody>
+        <Fragment>
+          <tbody id="myTable" key={flightList.id}>
+            <tr>
+              <td>
+                {flightList.date}
+                {/* {flightList.date.split("-")[2]}
+                {flightList.date.split("-")[1]}
+                {flightList.date.split("-")[0]} */}
+              </td>
+              <td>
+                <a href={"/flights/" + flightList.id}>
+                  {flightList.flight_number}
+                </a>
+              </td>
+              <td>{flightList.origin}</td>
+              <td>{flightList.destination}</td>
+              <td>{flightList.airplane_model}</td>
+              <td>{flightList.capacity}</td>
+            </tr>
+          </tbody>
+        </Fragment>
       );
       //   <li key={index}>{flightList.flightId}</li>;
     });
