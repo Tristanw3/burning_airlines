@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-// import "./Flights.css";
+import React from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Table, Container } from "react-bootstrap";
+import { Table, Container } from "react-bootstrap";
 import { BACKEND_URL } from "../config";
 class Airplanes extends React.Component {
   state = {};
@@ -9,20 +9,14 @@ class Airplanes extends React.Component {
   render() {
     return (
       <div>
-        <FlightsList />
+        <AirplanesList />
       </div>
     );
   }
 }
-class FlightsList extends React.Component {
+class AirplanesList extends React.Component {
   state = {
-    flightList: [],
-    flightDate: [],
-    flightId: [],
-    flightFrom: [],
-    flightTo: [],
-    flightModel: [],
-    flightSeats: []
+    flightList: []
   };
   componentDidMount() {
     let self = this;

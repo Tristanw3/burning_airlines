@@ -48,7 +48,6 @@ class Search extends React.Component {
       return thisFlightsString === flightSearchString;
     });
 
-    // this.setState({ filteredFlights: filteredFlights });
     this.setState({
       filteredFlights: filteredFlights,
       isSearching: true
